@@ -8,14 +8,14 @@ spec:
       matchLabels:
         component: postgres
     template:
-      volumes:
-        - name: postgres-storage
-          persistentVolumeClaim:
-            claimName: database-pvc
       metadata:
         labels:
           component: postgres
       spec:
+        volumes:
+          - name: postgres-storage
+            persistentVolumeClaim:
+              claimName: database-pvc
         containers:
           - name: postgres
             image: postgres
